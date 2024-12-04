@@ -1,0 +1,89 @@
+import React from "react";
+import profileImg from "./Assets/me.jpg";
+import resume from "./Assets/Resume.docx (2).pdf";
+
+function Work() {
+  return (
+    <div>
+      <div class="hero min-h-2xl bg-grey-400 hover:bg-red-600">
+        <div class="hero-content py-12 text-neutral-content text-center">
+          <div class="max-w-4xl">
+            <h1 class="mb-5 text-5xl text-white font-bold">
+              A Student at the University of Wisconsin-Madison
+            </h1>
+            <p class="mb-5 text-white text-xl">
+              Double majoring in{" "}
+              <span class="font-bold text-2xl decoration-[#d4af37]">
+                Computer Science
+              </span>{" "}
+              and{" "}
+              <span class="font-bold text-2xl decoration-[#d4af37]">
+                Data Science
+              </span>
+            </p>
+            <p1 class="font-bold text-grey-300">
+              Planning on pursuing a professional master's!
+            </p1>
+          </div>
+        </div>
+      </div>
+
+      <section class="bg-white">
+        <h1 class="underline pt-9 decoration-red-300 flex justify-center text-4xl pt-5 font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl text-black">
+          Work Experience
+        </h1>
+        <div class="grid w-screen px-4 py-8 mx-auto lg:gap-15 xl:gap-0 lg:py-20 lg:grid-cols-12">
+          <div class="ml-8 w-[250px] lg:w-[500px] h-[screen]">
+            <ol class="relative border-s border-gray-400 dark:border-gray-700">
+              <li class="mb-10 ms-4">
+                <div class="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  September 2024 - Present
+                </time>
+                <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Software Developer
+                </h1>
+                <p class="text-md text-gray-900 dark:text-white">
+                  Data Science For Sustainable Development
+                </p>
+              </li>
+              <li class="mb-10 ms-4">
+                <div class="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  August 2022 - May 2024
+                </time>
+                <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Web developer, Lead Teacher (Grades 7-8)
+                </h1>
+                <p class="text-md text-gray-900 dark:text-white">
+                  CompSci Kids
+                </p>
+              </li>
+              <li class="ms-4">
+                <div class="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time class="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  March 2023 - March 2024
+                </time>
+                <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Lead Instructor
+                </h1>
+                <p class="text-md text-gray-900 dark:text-white">Mathnasium</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      
+       
+        <a
+          class="pb-8 flex justify-center text-sm font-extrabold leading-none tracking-tight md:text-5xl lg:text-xl text-grey hover:underline hover:text-blue-400"
+          href={resume}
+          target="_blank"
+        >
+          Open Resume
+        </a>
+      </section>
+    </div>
+  );
+}
+
+export default Work;
