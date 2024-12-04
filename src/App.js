@@ -1,9 +1,11 @@
 import './App.css';
+
 import Navbar from "./Sections/Navbar";
 import Header from "./Sections/Header";
 import AboutMe from "./Sections/AboutMe"
 import Work from './Sections/Work';
-import Contact from './Sections/Contact';
+import Projects from "./Sections/Projects";
+import Footer from "./Sections/Footer";
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
       <Header/>
       <AboutMe/>
       <Work/>
-      <Contact/>
+      <Projects/>
+      <Footer/>
     </div>
   );
 }
