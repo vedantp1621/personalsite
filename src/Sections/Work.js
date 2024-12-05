@@ -1,5 +1,4 @@
 import React from "react";
-import profileImg from "./Assets/me.jpg";
 import resume from "./Assets/Resume.docx (2).pdf";
 
 function Work() {

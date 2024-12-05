@@ -1,5 +1,3 @@
-import { exp } from "three/examples/jsm/nodes/Nodes.js";
-
 function Projects() {
     return (
       <section class="bg-[#36454F] dark:bg-gray-900">
