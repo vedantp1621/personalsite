@@ -76,7 +76,7 @@ function Work() {
         <a
           class="pb-8 flex justify-center text-sm font-extrabold leading-none tracking-tight md:text-5xl lg:text-xl text-grey hover:underline hover:text-blue-400"
           href={resume}
-          target="_blank"
+          rel = "noopener"
         >
           Open Resume
         </a>

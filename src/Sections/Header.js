@@ -48,6 +48,7 @@ function Header() {
         <img
           class="hidden lg:flex h-auto max-w-sm ms-auto shadow-xl rounded-full"
           src={profileImg}
+          alt="Profile"
         ></img>
       </div>
 

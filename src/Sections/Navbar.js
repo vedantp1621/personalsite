@@ -1,17 +1,6 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Disclosure} from '@headlessui/react'
 
 import logo from './Assets/logo.jpeg'
-
-const navigation = [
-  { name: 'About Me', href: 'aboutme', current: false },
-  { name: 'Accolades', href: 'accolades', current: false },
-  { name: 'This Build', href: 'thisbuild', current: false },
-]
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Navbar() {
   return (

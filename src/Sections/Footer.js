@@ -3,14 +3,15 @@ import logo from "./Assets/logo.jpeg";
 function Footer() {
   return (
     <footer class="p-4 md:p-8 lg:p-10 bg-[#36454F]">
-      <div class="mx-auto max-w-screen-xl text-center">
-        <a
-          href="#"
-          class="flex justify-center items-center text-2xl font-semibold text-white"
-        >
-          <img className="block h-16 w-auto" src={logo} alt="Workflow" />
-        </a>
-        <p class="my-6 text-lg text-[#d4af37]">
+      <div class="mx-auto max-w-screen-xl">
+        <p1 class="flex justify-center items-center text-2xl font-semibold text-white">
+          <img
+            className="h-16 w-auto"
+            src={logo}
+            alt="Workflow"
+          />
+        </p1>
+        <p class="my-6 text-lg text-[#d4af37] text-center">
           Thank you for taking time to view my page. Here are my contacts!
         </p>
         <div class="flex flex-wrap justify-center items-center mb-6 text-white">
