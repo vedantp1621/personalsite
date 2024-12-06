@@ -17,20 +17,20 @@ function Footer() {
         <div className="flex flex-wrap justify-center items-center mb-6 text-white">
           <p>
             <a
-              href="https://github.com/vedantp621"
+              href="https://github.com/vedantp1621"
               className="mr-4 hover:underline md:mr-6 "
             >
               Github
             </a>
           </p>
-          <li>
+          
             <a
               href="https://www.linkedin.com/in/vedant-p-patel/"
               className="mr-4 hover:underline md:mr-6"
             >
               LinkedIn
             </a>
-          </li>
+         
 
           <p className="mr-4 md:mr-6 ">vppatel3@wisc.edu</p>
           <p className="mr-4 md:mr-6 ">(815)-416-5778</p>
