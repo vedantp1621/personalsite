@@ -39,7 +39,7 @@ function Work() {
               <li className="mb-10 ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                  September 2024 - Present
+                  September 2024 - Present | Madison, WI
                 </time>
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Software Developer
@@ -51,7 +51,7 @@ function Work() {
               <li className="mb-10 ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                  August 2022 - May 2024
+                  August 2022 - May 2024 | Hoffman Estates, IL
                 </time>
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Web developer, Lead Teacher (Grades 7-8)
@@ -63,7 +63,7 @@ function Work() {
               <li className="ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                  March 2023 - March 2024
+                  March 2023 - March 2024 | Schaumburg, IL
                 </time>
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Lead Instructor
