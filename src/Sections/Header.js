@@ -22,7 +22,7 @@ function Header() {
               University of Wisconsin-Madison{" "}
             </span>
             student interested in{" "}
-            <span className="underline underline-offset-2 decoration-4 decoration-80a4c0 dark:80a4c0">
+            <span className="underline underline-offset-2 decoration-4 decoration-80a4c">
               <Typer
                 className="inline-block"
                 dataText={[

@@ -39,10 +39,10 @@ function Projects() {
             <a
               href="https://docs.google.com/presentation/d/1np0eR8Sxbrn7FDmA1tCazrk8-DZt7iyXT6X9HTkIgq8/edit?usp=sharing"
               className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
-              rel="noopener"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Sample Images
-             
             </a>
           </div>
 
@@ -79,17 +79,18 @@ function Projects() {
               <a
                 href="https://webscrapers.org/"
                 className="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center"
-                rel="noopener"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 webscrapers.org
-               
               </a>
             </div>
             <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
               <a
                 href="https://docs.google.com/presentation/d/1C55xx0iuZxkgIDcGtdVzLzj6qlmxoCyT5WYhqj00Obw/edit#slide=id.p"
                 className="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-purple-400 mb-2"
-                rel="noopener"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg
                   className="w-2.5 h-2.5 me-1.5"
@@ -121,19 +122,19 @@ function Projects() {
               <a
                 href="https://github.com/SahilKhunt08/Impulse-Workout-App"
                 className="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center"
-                rel="noopener"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Github
-             
               </a>
 
               <a
                 href="https://docs.google.com/presentation/d/1C55xx0iuZxkgIDcGtdVzLzj6qlmxoCyT5WYhqj00Obw/edit?usp=sharing"
                 className="ml-3 text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center"
-                rel="noopener"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Sample Images
-               
               </a>
             </div>
             <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
@@ -166,10 +167,10 @@ function Projects() {
               <a
                 href="https://youtu.be/6peGWMOrVn0"
                 className="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center"
-                rel="noopener"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Watch Demo
-              
               </a>
             </div>
           </div>

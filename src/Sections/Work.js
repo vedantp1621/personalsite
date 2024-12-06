@@ -4,28 +4,30 @@ import resume from "./Assets/Resume.docx (2).pdf";
 function Work() {
   return (
     <div>
-      <div className="hero min-h-2xl bg-grey-400 hover:bg-red-600">
-        <div className="hero-content py-12 text-neutral-content text-center">
-          <div className="max-w-4xl">
-            <h1 className="mb-5 text-5xl text-white font-bold">
-              A Student at the University of Wisconsin-Madison
-            </h1>
-            <p className="mb-5 text-white text-xl">
-              Double majoring in{" "}
-              <span className="font-bold text-2xl decoration-[#d4af37]">
-                Computer Science
-              </span>{" "}
-              and{" "}
-              <span className="font-bold text-2xl decoration-[#d4af37]">
-                Data Science
-              </span>
-            </p>
-            <p className="font-bold text-grey-300">
-              Planning on pursuing a professional master's!
-            </p>
+      <section className="bg-gray-800 hover:bg-red-600">
+        <div className="hero min-h-2xl">
+          <div className="hero-content py-12 text-neutral-content text-center">
+            <div className="max-w-4xl">
+              <h1 className="mb-5 text-5xl text-white font-bold">
+                A Student at the University of Wisconsin-Madison
+              </h1>
+              <p className="mb-5 text-white text-xl">
+                Double majoring in{" "}
+                <span className="font-bold text-2xl decoration-[#d4af37]">
+                  Computer Science
+                </span>{" "}
+                and{" "}
+                <span className="font-bold text-2xl decoration-[#d4af37]">
+                  Data Science
+                </span>
+              </p>
+              <p className="font-bold text-grey-300">
+                Planning on pursuing a professional master's!
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <section className="bg-white">
         <h1 className="underline pt-9 decoration-red-300 flex justify-center text-4xl pt-5 font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl text-black">
@@ -66,17 +68,19 @@ function Work() {
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Lead Instructor
                 </h1>
-                <p className="text-md text-gray-900 dark:text-white">Mathnasium</p>
+                <p className="text-md text-gray-900 dark:text-white">
+                  Mathnasium
+                </p>
               </li>
             </ol>
           </div>
         </div>
-      
-       
+
         <a
           className="pb-8 flex justify-center text-sm font-extrabold leading-none tracking-tight md:text-5xl lg:text-xl text-grey hover:underline hover:text-blue-400"
           href={resume}
-          rel = "noopener"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Open Resume
         </a>
