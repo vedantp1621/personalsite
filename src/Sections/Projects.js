@@ -29,13 +29,16 @@ function Projects() {
               Amazon.com Product Analyzer
             </h1>
             <p className="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">
-              Using Python, MySQL, and Natural Language Processing(NLP)
-              techniques, I created a script that analyzes reviews towards any
-              given Amazon.com product. My data came from a combination of two
-              customer review databases, totaling over 250 million
-              points of data. I heavily relied on SQL techniques like
-              aggregates, string functions, CTE's, and the Natural Language
-              Toolkit(NLTK) to optimize the program's efficiency.
+              Using Python, MySQL, and Natural Language Processing (NLP)
+              techniques, I developed a product analyzer that provided
+              data-driven insights into sentiments toward Amazon products. By
+              leveraging SQL concepts such as aggregates, string functions,
+              JOINs, and CTEs, I processed over 250 million Amazon product
+              reviews across multiple datasets. I utilized Scikit-learn and
+              Pandas to clean and prepare data, training a sentiment analysis
+              model to accurately classify reviews as positive, negative, or
+              neutral, optimizing its performance with the Natural Language
+              Toolkit (NLTK).
             </p>
             <button
               className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
