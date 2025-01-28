@@ -45,7 +45,7 @@ function Work() {
                   Undergraduate Researcher
                 </h1>
                 <p className="text-md text-gray-900 dark:text-white">
-                  The Computational Optics Group at UW-Madison
+                  The Computational Optics Group @ UW-Madison
                 </p>
               </li>
               <li className="mb-10 ms-4">
@@ -66,7 +66,7 @@ function Work() {
                   August 2022 - May 2024 | Hoffman Estates, IL
                 </time>
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  Web developer, Lead Teacher (Grades 7-8)
+                  Web developer, Board Member
                 </h1>
                 <p className="text-md text-gray-900 dark:text-white">
                   CompSci Kids
