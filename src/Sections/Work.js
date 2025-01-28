@@ -34,8 +34,20 @@ function Work() {
           Work Experience
         </h1>
         <div className="grid w-screen px-4 py-8 mx-auto lg:gap-15 xl:gap-0 lg:py-20 lg:grid-cols-12">
-          <div className="ml-8 w-[250px] lg:w-[500px] h-[screen]">
+          <div className="ml-8 w-[250px] lg:w-[700px] h-[screen]">
             <ol className="relative border-s border-gray-400 dark:border-gray-700">
+              <li className="mb-10 ms-4">
+                <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  January 2025 - Present | Madison, WI
+                </time>
+                <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  Undergraduate Researcher
+                </h1>
+                <p className="text-md text-gray-900 dark:text-white">
+                  The Computational Optics Group at UW-Madison
+                </p>
+              </li>
               <li className="mb-10 ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
