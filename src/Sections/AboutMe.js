@@ -13,7 +13,7 @@ function AboutMe() {
           </h1>
 
           <div className="flex flex-col lg:flex-row lg:w-[1300px] max-w-screen">
-            <div className="mt-10 lg:w-[650px] w-[300px]">
+            <div className="mt-10 md:w-[650px] w-[300px]">
               <p className="mb-3 text-gray-400 first-letter:text-9xl text-xl first-letter:font-bold first-letter:text-gray-100 first-letter:mr-3 first-letter:float-left">
                 Ever since I stepped foot in my first high school computer
                 science className, I have been hooked. Since then, my passion for
@@ -37,7 +37,7 @@ function AboutMe() {
               </p>
             </div>
 
-            <div className="hidden md:flex card lg:ml-[150px] md:ml-[100px] sm:ml-[50px] w-[500px] h-[280px] bg-base-100 shadow-xl">
+            <div className="hidden lg:flex card lg:ml-[150px] md:ml-[100px] sm:ml-[50px] w-[500px] h-[280px] bg-base-100 shadow-xl">
               <div className="carousel rounded-box w-[500px] shadow-sm shadow-[#d4af37]">
                 <div id="item1" className="carousel-item">
                   <div className="card-body w-[500px]">

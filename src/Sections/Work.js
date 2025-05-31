@@ -1,5 +1,5 @@
 import React from "react";
-import resume from "./Assets/Resume.docx (2).pdf";
+import resume from "./Assets/Patel_Vedant_Resume.pdf";
 
 function Work() {
   return (
@@ -21,9 +21,6 @@ function Work() {
                   Data Science
                 </span>
               </p>
-              <p className="font-bold text-grey-300">
-                Planning on pursuing a professional master's!
-              </p>
             </div>
           </div>
         </div>
@@ -39,7 +36,17 @@ function Work() {
               <li className="mb-10 ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                  January 2025 - Present | Madison, WI
+                  June 2025 - August 2025 | Schaumburg, IL
+                </time>
+                <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  Software Engineer Intern
+                </h1>
+                <p className="text-md text-gray-900 dark:text-white">ISACA</p>
+              </li>
+              <li className="mb-10 ms-4">
+                <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  January 2025 - May 2025 | Madison, WI
                 </time>
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Undergraduate Researcher
@@ -51,7 +58,7 @@ function Work() {
               <li className="mb-10 ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                  September 2024 - Present | Madison, WI
+                  September 2024 - May 2025 | Madison, WI
                 </time>
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Software Developer
