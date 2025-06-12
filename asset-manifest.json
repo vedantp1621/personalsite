@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/personalsite/static/css/main.ae15996d.css",
-    "main.js": "/personalsite/static/js/main.0856f6d8.js",
+    "main.css": "/personalsite/static/css/main.ce08c31d.css",
+    "main.js": "/personalsite/static/js/main.9643b2ca.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
     "static/media/me.jpg": "/personalsite/static/media/me.a7b0bf3d395cba3d4a10.jpg",
     "static/media/Patel_Vedant_Resume.pdf": "/personalsite/static/media/Patel_Vedant_Resume.1eb63c38e66bb0c2f54f.pdf",
     "static/media/logo.jpeg": "/personalsite/static/media/logo.aee17ecb79c623b2e482.jpeg",
     "index.html": "/personalsite/index.html",
-    "main.ae15996d.css.map": "/personalsite/static/css/main.ae15996d.css.map",
-    "main.0856f6d8.js.map": "/personalsite/static/js/main.0856f6d8.js.map",
+    "main.ce08c31d.css.map": "/personalsite/static/css/main.ce08c31d.css.map",
+    "main.9643b2ca.js.map": "/personalsite/static/js/main.9643b2ca.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae15996d.css",
-    "static/js/main.0856f6d8.js"
+    "static/css/main.ce08c31d.css",
+    "static/js/main.9643b2ca.js"
   ]
 }
