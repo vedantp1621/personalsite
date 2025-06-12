@@ -1,5 +1,13 @@
 import React from "react";
 import resume from "./Assets/Patel_Vedant_Resume.pdf";
+import profileImg from "./Assets/me.jpg";
+import cskLogo from './Assets/CSKLogo.jpeg';
+import dssdLogo from "./Assets/DSSDLogo.png";
+import isacaLogo from "./Assets/ISACALogo.jpeg";
+import mathnasiumLogo from "./Assets/mathnasiumLogo.jpg";
+import wiscoLogo from "./Assets/wisconsinLogo.jpg";
+
+
 
 function Work() {
   return (
@@ -41,8 +49,14 @@ function Work() {
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Software Engineer Intern
                 </h1>
-                <p className="text-md text-gray-900 dark:text-white">ISACA</p>
+                <div className="flex flex-row">
+                  <p className="text-md mr-3 text-gray-900 dark:text-white">
+                    ISACA
+                  </p>
+                  <img src={isacaLogo} style={{ width: 25, height: 25 }} />
+                </div>
               </li>
+
               <li className="mb-10 ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -51,10 +65,14 @@ function Work() {
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Undergraduate Researcher
                 </h1>
-                <p className="text-md text-gray-900 dark:text-white">
-                  The Computational Optics Group @ UW-Madison
-                </p>
+                <div className="flex flex-row">
+                  <p className="text-md mr-3 text-gray-900 dark:text-white">
+                    The Computational Optics Group @ UW-Madison
+                  </p>
+                  <img src={wiscoLogo} style={{ width: 25, height: 25 }} />
+                </div>
               </li>
+
               <li className="mb-10 ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -63,10 +81,14 @@ function Work() {
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Software Developer
                 </h1>
-                <p className="text-md text-gray-900 dark:text-white">
-                  Data Science For Sustainable Development
-                </p>
+                <div className="flex flex-row">
+                  <p className="text-md mr-3 text-gray-900 dark:text-white">
+                    Data Science For Sustainable Development
+                  </p>
+                  <img src={dssdLogo} style={{ width: 30, height: 30 }} />
+                </div>
               </li>
+
               <li className="mb-10 ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -75,10 +97,14 @@ function Work() {
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Web developer, Board Member
                 </h1>
-                <p className="text-md text-gray-900 dark:text-white">
-                  CompSci Kids
-                </p>
+                <div className="flex flex-row">
+                  <p className="text-md mr-3 text-gray-900 dark:text-white">
+                    CompSci Kids
+                  </p>
+                  <img src={cskLogo} style={{ width: 30, height: 30 }} />
+                </div>
               </li>
+
               <li className="ms-4">
                 <div className="absolute w-3 h-3 bg-[#d4af37] rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -87,9 +113,12 @@ function Work() {
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Lead Instructor
                 </h1>
-                <p className="text-md text-gray-900 dark:text-white">
-                  Mathnasium
-                </p>
+                <div className="flex flex-row">
+                  <p className="text-md mr-3 text-gray-900 dark:text-white">
+                    Mathnasium
+                  </p>
+                  <img src={mathnasiumLogo} style={{ width: 25, height: 25 }} />
+                </div>
               </li>
             </ol>
           </div>

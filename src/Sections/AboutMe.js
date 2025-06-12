@@ -12,7 +12,7 @@ function AboutMe() {
             </span>
           </h1>
 
-          <div className="flex flex-col lg:flex-row lg:w-[1600px] max-w-screen">
+          <div className="flex flex-col lg:flex-row lg:w-[1000px] max-w-screen">
             <div className="mt-10 md:w-[750px] w-[300px]">
               <p className="mb-3 text-gray-400 first-letter:text-9xl text-xl first-letter:font-bold first-letter:text-gray-100 first-letter:mr-3 first-letter:float-left">
                 Technology is something I knew I would love the day I stepped into my first 
