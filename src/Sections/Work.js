@@ -1,6 +1,5 @@
 import React from "react";
 import resume from "./Assets/Patel_Vedant_Resume.pdf";
-import profileImg from "./Assets/me.jpg";
 import cskLogo from './Assets/CSKLogo.jpeg';
 import dssdLogo from "./Assets/DSSDLogo.png";
 import isacaLogo from "./Assets/ISACALogo.jpeg";
