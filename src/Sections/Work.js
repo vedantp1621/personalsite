@@ -53,7 +53,11 @@ function Work() {
                   <p className="text-md mr-3 text-gray-900 dark:text-white">
                     ISACA
                   </p>
-                  <img src={isacaLogo} style={{ width: 25, height: 25 }} />
+                  <img
+                    src={isacaLogo}
+                    style={{ width: 25, height: 25 }}
+                    alt="ISACA Logo"
+                  />
                 </div>
               </li>
 
@@ -69,7 +73,11 @@ function Work() {
                   <p className="text-md mr-3 text-gray-900 dark:text-white">
                     The Computational Optics Group @ UW-Madison
                   </p>
-                  <img src={wiscoLogo} style={{ width: 25, height: 25 }} />
+                  <img
+                    src={wiscoLogo}
+                    style={{ width: 25, height: 25 }}
+                    alt="UW-Madison Logo"
+                  />
                 </div>
               </li>
 
@@ -85,7 +93,11 @@ function Work() {
                   <p className="text-md mr-3 text-gray-900 dark:text-white">
                     Data Science For Sustainable Development
                   </p>
-                  <img src={dssdLogo} style={{ width: 30, height: 30 }} />
+                  <img
+                    src={dssdLogo}
+                    style={{ width: 30, height: 30 }}
+                    alt="DSSD Logo"
+                  />
                 </div>
               </li>
 
@@ -101,7 +113,11 @@ function Work() {
                   <p className="text-md mr-3 text-gray-900 dark:text-white">
                     CompSci Kids
                   </p>
-                  <img src={cskLogo} style={{ width: 30, height: 30 }} />
+                  <img
+                    src={cskLogo}
+                    style={{ width: 30, height: 30 }}
+                    alt="CSK Logo"
+                  />
                 </div>
               </li>
 
@@ -117,7 +133,11 @@ function Work() {
                   <p className="text-md mr-3 text-gray-900 dark:text-white">
                     Mathnasium
                   </p>
-                  <img src={mathnasiumLogo} style={{ width: 25, height: 25 }} />
+                  <img
+                    src={mathnasiumLogo}
+                    style={{ width: 25, height: 25 }}
+                    alt="Mathnaisum Logo"
+                  />
                 </div>
               </li>
             </ol>
