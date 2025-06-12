@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.css": "/personalsite/static/css/main.ce08c31d.css",
-    "main.js": "/personalsite/static/js/main.9643b2ca.js",
+    "main.css": "/personalsite/static/css/main.54f81d7b.css",
+    "main.js": "/personalsite/static/js/main.342cea36.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
     "static/media/me.jpg": "/personalsite/static/media/me.a7b0bf3d395cba3d4a10.jpg",
     "static/media/Patel_Vedant_Resume.pdf": "/personalsite/static/media/Patel_Vedant_Resume.1eb63c38e66bb0c2f54f.pdf",
+    "static/media/wisconsinLogo.jpg": "/personalsite/static/media/wisconsinLogo.76e63f9975a3d52d9183.jpg",
     "static/media/logo.jpeg": "/personalsite/static/media/logo.aee17ecb79c623b2e482.jpeg",
+    "static/media/mathnasiumLogo.jpg": "/personalsite/static/media/mathnasiumLogo.6eed99245f67b3c20757.jpg",
+    "static/media/CSKLogo.jpeg": "/personalsite/static/media/CSKLogo.ef77fb083516deefa5cb.jpeg",
     "index.html": "/personalsite/index.html",
-    "main.ce08c31d.css.map": "/personalsite/static/css/main.ce08c31d.css.map",
-    "main.9643b2ca.js.map": "/personalsite/static/js/main.9643b2ca.js.map",
+    "main.54f81d7b.css.map": "/personalsite/static/css/main.54f81d7b.css.map",
+    "main.342cea36.js.map": "/personalsite/static/js/main.342cea36.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce08c31d.css",
-    "static/js/main.9643b2ca.js"
+    "static/css/main.54f81d7b.css",
+    "static/js/main.342cea36.js"
   ]
 }
