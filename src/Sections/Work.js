@@ -38,15 +38,6 @@ const workExperiences = [
     logoSize: { width: 25, height: 25 },
   },
   {
-    date: "August 2022 - May 2024",
-    location: "Hoffman Estates, IL",
-    title: "Web Developer, Board Member",
-    company: "CompSci Kids",
-    logo: cskLogo,
-    logoAlt: "CSK Logo",
-    logoSize: { width: 30, height: 30 },
-  },
-  {
     date: "March 2023 - March 2024",
     location: "Schaumburg, IL",
     title: "Lead Instructor",
@@ -84,6 +75,15 @@ const clubExperiences = [
     logo: isaLogo,
     logoAlt: "ISA Logo",
     logoSize: { width: 25, height: 25 },
+  },
+  {
+    date: "August 2022 - May 2024",
+    location: "Hoffman Estates, IL",
+    title: "Web Developer, Board Member",
+    company: "CompSci Kids",
+    logo: cskLogo,
+    logoAlt: "CSK Logo",
+    logoSize: { width: 30, height: 30 },
   },
 ];
 
