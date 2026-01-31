@@ -10,8 +10,7 @@ function AboutMe() {
       if (sectionRef.current) {
         const { top, height } = sectionRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        let localProgress = 1 - (top + height) / (windowHeight + height);
-        localProgress = Math.min(Math.max(localProgress, 0), 1);
+    
       }
 
       // --- 2. Global Color Sync ---
