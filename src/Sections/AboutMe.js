@@ -5,13 +5,7 @@ function AboutMe() {
   const [bgColor, setBgColor] = useState("rgb(140, 62, 62)");
 
   useEffect(() => {
-    const handleScroll = () => {
-      // --- 1. Arrow Progress (Local) ---
-      if (sectionRef.current) {
-        const { top, height } = sectionRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-    
-      }
+    const handleScroll = () => {      
 
       // --- 2. Global Color Sync ---
       const scrollY = window.scrollY;
