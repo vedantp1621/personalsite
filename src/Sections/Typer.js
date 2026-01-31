@@ -41,7 +41,7 @@ class Typer extends React.Component {
   render() {
     return (
       <h1 className='text-[#FFFFFF]'>{ this.props.heading }&nbsp;
-        <span className="text-[#80a4c0] dark:text-[#80a4c0]">{ this.state.text }</span>
+        <span className="text-gray-200">{ this.state.text }</span>
         <span id="cursor"></span>
       </h1>
     );

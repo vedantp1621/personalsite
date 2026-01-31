@@ -1,7 +1,54 @@
+import React, { useState, useEffect } from "react";
+
 function Projects() {
+  // Initialize with the starting color of the gradient
+  const [bgColor, setBgColor] = useState("rgb(140, 62, 62)");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      // SYNC LOGIC: Must match AboutMe.js and Work.js exactly
+      const fadeStart = 1200;
+      const fadeEnd = 3200;
+
+      let globalProgress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
+      globalProgress = Math.min(Math.max(globalProgress, 0), 1);
+
+      // Interpolate from #8C3E3E (140, 62, 62) -> Dark Gray (35, 35, 35)
+      const startRed = 140;
+      const startGreen = 62;
+      const startBlue = 62;
+
+      const endRed = 28;
+      const endGreen = 28;
+      const endBlue = 28;
+
+      const red = Math.floor(startRed + (endRed - startRed) * globalProgress);
+      const green = Math.floor(
+        startGreen + (endGreen - startGreen) * globalProgress,
+      );
+      const blue = Math.floor(
+        startBlue + (endBlue - startBlue) * globalProgress,
+      );
+
+      setBgColor(`rgb(${red}, ${green}, ${blue})`);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="bg-[#36454F]">
-      <h1 className="underline pt-9 decoration-orange-300 flex justify-center text-4xl pt-5 font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-black">
+    <section
+      // Apply the dynamic background color here
+      style={{ backgroundColor: bgColor }}
+      // Added transition classes for smooth syncing
+      className="min-h-screen transition-colors duration-75 ease-linear"
+    >
+      <h1 className="underline pt-9 decoration-red-300 flex justify-center text-4xl pt-5 font-extrabold leading-none tracking-tight text-[#f6e8ea] md:text-5xl lg:text-6xl">
         Projects
       </h1>
 
@@ -29,7 +76,7 @@ function Projects() {
           <h1 className="text-gray-900 text-3xl md:text-5xl font-extrabold mb-2">
             Modern AOI System for
             <a
-              href="https://www.plexus.com//" /* <-- Assuming a different link for slides */
+              href="https://www.plexus.com//"
               className="text-[#d01f2d] ml-2 hover:underline inline-flex items-center"
               target="_blank"
               rel="noopener noreferrer"
@@ -54,7 +101,7 @@ function Projects() {
           <div className="flex flex-wrap items-center gap-4 mt-6">
             {/* Primary Button: Live Demo */}
             <a
-              href="https://pi-board-defect-check.vercel.app/" /* <-- Assuming a different link for slides */
+              href="https://pi-board-defect-check.vercel.app/"
               className="text-blue-600 hover:underline font-medium text-lg inline-flex items-center"
               target="_blank"
               rel="noopener noreferrer"
@@ -64,7 +111,7 @@ function Projects() {
 
             {/* Secondary Button: Slides */}
             <a
-              href="https://docs.google.com/presentation/d/18VKaJLHzY4rMYWQ_fbT5b8GAPxFkK4puDeHL9O0XUfw/edit?usp=sharing" /* <-- Assuming a different link for slides */
+              href="https://docs.google.com/presentation/d/18VKaJLHzY4rMYWQ_fbT5b8GAPxFkK4puDeHL9O0XUfw/edit?usp=sharing"
               className="text-blue-600 hover:underline font-medium text-lg inline-flex items-center"
               target="_blank"
               rel="noopener noreferrer"
@@ -74,9 +121,8 @@ function Projects() {
           </div>
         </div>
 
-        {/* Card 2: Yellow */}
-
         <div className="grid md:grid-cols-2 gap-8">
+          {/* Card 2: Teal */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12 transform transition-all duration-300 ease-in-out hover:scale-104 hover:shadow-xl hover:ring-2 hover:ring-teal-400">
             <p className="bg-teal-100 text-teal-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2">
               <svg
@@ -120,6 +166,7 @@ function Projects() {
             </a>
           </div>
 
+          {/* Card 3: Yellow */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12 transform transition-all duration-300 ease-in-out hover:scale-104 hover:shadow-xl hover:ring-2 hover:ring-yellow-400">
             <p className="bg-yellow-100 text-yellow-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2">
               <svg
@@ -163,7 +210,7 @@ function Projects() {
             </a>
           </div>
 
-          {/* Card 2: Yellow */}
+          {/* Card 4: Pink */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12 transform transition-all duration-300 ease-in-out hover:scale-104 hover:shadow-xl hover:ring-2 hover:ring-pink-400">
             <p className="bg-pink-100 text-pink-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2">
               <svg
@@ -204,7 +251,7 @@ function Projects() {
             </a>
           </div>
 
-          {/* Card 3: Green */}
+          {/* Card 5: Green */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12 transform transition-all duration-300 ease-in-out hover:scale-104 hover:shadow-xl hover:ring-2 hover:ring-green-400">
             <p className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2">
               <svg
@@ -244,7 +291,7 @@ function Projects() {
             </a>
           </div>
 
-          {/* Card 4: Purple */}
+          {/* Card 6: Purple */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12 transform transition-all duration-300 ease-in-out hover:scale-104 hover:shadow-xl hover:ring-2 hover:ring-purple-400">
             <a
               href="https://docs.google.com/presentation/d/1C55xx0iuZxkgIDcGtdVzLzj6qlmxoCyT5WYhqj00Obw/edit#slide=id.p"
@@ -298,7 +345,7 @@ function Projects() {
             </a>
           </div>
 
-          {/* Card 5: Blue */}
+          {/* Card 7: Blue */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12 mb-8 transform transition-all duration-300 ease-in-out hover:scale-104 hover:shadow-xl hover:ring-2 hover:ring-blue-400">
             <p className="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2">
               <svg
