@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/personalsite/static/css/main.f673ec5e.css",
-    "main.js": "/personalsite/static/js/main.1b34a2aa.js",
+    "main.css": "/personalsite/static/css/main.8ef57e21.css",
+    "main.js": "/personalsite/static/js/main.e8a1b72f.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
     "static/media/me.jpg": "/personalsite/static/media/me.e0fcf5e5450dfdb745a5.jpg",
     "static/media/Patel_Vedant_Resume.pdf": "/personalsite/static/media/Patel_Vedant_Resume.1eb63c38e66bb0c2f54f.pdf",
+    "static/media/usbank.png": "/personalsite/static/media/usbank.ec002a92dbd770c0d147.png",
+    "static/media/FiPet.png": "/personalsite/static/media/FiPet.279e93294e430c23ef2d.png",
     "static/media/wisconsinLogo.jpg": "/personalsite/static/media/wisconsinLogo.76e63f9975a3d52d9183.jpg",
-    "static/media/logo.jpeg": "/personalsite/static/media/logo.aee17ecb79c623b2e482.jpeg",
+    "static/media/logo2.jpeg": "/personalsite/static/media/logo2.f916f0a04ab8b5931808.jpeg",
+    "static/media/logo.jpeg": "/personalsite/static/media/logo.bf2e1e301cf790d983c5.jpeg",
     "static/media/mathnasiumLogo.jpg": "/personalsite/static/media/mathnasiumLogo.6eed99245f67b3c20757.jpg",
     "static/media/CardinalLogo.avif": "/personalsite/static/media/CardinalLogo.cdfc120920dc06bea151.avif",
     "static/media/CSKLogo.jpeg": "/personalsite/static/media/CSKLogo.ef77fb083516deefa5cb.jpeg",
     "index.html": "/personalsite/index.html",
-    "main.f673ec5e.css.map": "/personalsite/static/css/main.f673ec5e.css.map",
-    "main.1b34a2aa.js.map": "/personalsite/static/js/main.1b34a2aa.js.map",
+    "main.8ef57e21.css.map": "/personalsite/static/css/main.8ef57e21.css.map",
+    "main.e8a1b72f.js.map": "/personalsite/static/js/main.e8a1b72f.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f673ec5e.css",
-    "static/js/main.1b34a2aa.js"
+    "static/css/main.8ef57e21.css",
+    "static/js/main.e8a1b72f.js"
   ]
 }
