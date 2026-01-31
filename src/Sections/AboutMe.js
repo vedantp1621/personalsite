@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 
 function AboutMe() {
   const sectionRef = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [bgColor, setBgColor] = useState("rgb(140, 62, 62)");
 
   useEffect(() => {
@@ -13,7 +12,6 @@ function AboutMe() {
         const windowHeight = window.innerHeight;
         let localProgress = 1 - (top + height) / (windowHeight + height);
         localProgress = Math.min(Math.max(localProgress, 0), 1);
-        setScrollProgress(localProgress * 100);
       }
 
       // --- 2. Global Color Sync ---

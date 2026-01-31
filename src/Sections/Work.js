@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import resume from "./Assets/Patel_Vedant_Resume.pdf";
+import React, { useState, useEffect } from "react";
 import cskLogo from "./Assets/CSKLogo.jpeg";
 import dssdLogo from "./Assets/DSSDLogo.png";
 import isacaLogo from "./Assets/ISACALogo.jpeg";
