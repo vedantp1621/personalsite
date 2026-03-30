@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/personalsite/static/css/main.d2a9ccd2.css",
-    "main.js": "/personalsite/static/js/main.125cebe8.js",
+    "main.css": "/personalsite/static/css/main.8a2953d7.css",
+    "main.js": "/personalsite/static/js/main.2921b4c0.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
     "static/media/me.jpg": "/personalsite/static/media/me.e0fcf5e5450dfdb745a5.jpg",
     "static/media/Patel_Vedant_Resume.pdf": "/personalsite/static/media/Patel_Vedant_Resume.b63d253d2f4eb2bad91b.pdf",
@@ -14,12 +14,12 @@
     "static/media/FiPet.png": "/personalsite/static/media/FiPet.f33f0b475212df393430.png",
     "static/media/CSKLogo.jpeg": "/personalsite/static/media/CSKLogo.ef77fb083516deefa5cb.jpeg",
     "index.html": "/personalsite/index.html",
-    "main.d2a9ccd2.css.map": "/personalsite/static/css/main.d2a9ccd2.css.map",
-    "main.125cebe8.js.map": "/personalsite/static/js/main.125cebe8.js.map",
+    "main.8a2953d7.css.map": "/personalsite/static/css/main.8a2953d7.css.map",
+    "main.2921b4c0.js.map": "/personalsite/static/js/main.2921b4c0.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2a9ccd2.css",
-    "static/js/main.125cebe8.js"
+    "static/css/main.8a2953d7.css",
+    "static/js/main.2921b4c0.js"
   ]
 }
