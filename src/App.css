@@ -36,3 +36,127 @@
     transform: rotate(360deg);
   }
 }
+
+.about-me-scene-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(148, 163, 184, 0.08);
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.trap-door {
+  position: absolute;
+  left: 50%;
+  top: 0.85rem;
+  width: 280px;
+  height: 88px;
+  transform: translateX(-50%);
+  perspective: 900px;
+}
+
+.trap-door-piece {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(148, 163, 184, 0.12),
+    rgba(30, 41, 59, 0.98)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 40px rgba(15, 23, 42, 0.22);
+  transform-style: preserve-3d;
+  transition: transform 0.65s ease;
+}
+
+.trap-door-piece.left {
+  left: 0;
+  transform-origin: top right;
+}
+
+.trap-door-piece.right {
+  right: 0;
+  transform-origin: top left;
+}
+
+.trap-door.opened .trap-door-piece.left {
+  transform: rotateX(85deg);
+}
+
+.trap-door.opened .trap-door-piece.right {
+  transform: rotateX(85deg);
+}
+
+.trap-door-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background: rgba(248, 146, 176, 0.98);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 2px rgba(248, 146, 176, 0.2);
+}
+
+.catch-box {
+  position: absolute;
+  left: 50%;
+  bottom: 2.25rem;
+  width: 330px;
+  height: 130px;
+  transform: translateX(-50%);
+  border-radius: 32px;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.25);
+}
+
+.about-me-emoji {
+  position: absolute;
+  font-size: 2.4rem;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.about-me-emoji.float-a {
+  animation: float-a 4s ease-in-out infinite;
+}
+
+.about-me-emoji.float-b {
+  animation: float-b 5.2s ease-in-out infinite;
+}
+
+.about-me-emoji.float-c {
+  animation: float-c 3.8s ease-in-out infinite;
+}
+
+@keyframes float-a {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-9px) rotate(6deg); }
+}
+
+@keyframes float-b {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  40% { transform: translateY(-7px) rotate(-4deg); }
+  70% { transform: translateY(-3px) rotate(2deg); }
+}
+
+@keyframes float-c {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-6deg); }
+}

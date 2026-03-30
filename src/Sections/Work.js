@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import cskLogo from "./Assets/CSKLogo.jpeg";
 import dssdLogo from "./Assets/DSSDLogo.png";
 import isacaLogo from "./Assets/ISACALogo.jpeg";
@@ -9,43 +9,78 @@ import cardinalLogo from "./Assets/CardinalLogo.avif";
 import isaLogo from "./Assets/ISALogo.jpeg";
 import fipetLogo from "./Assets/FiPet.png";
 
-const ExperienceCard = ({ role, company, date, location, logo, logoAlt }) => (
-  <div className="group relative flex gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gray-200 hover:shadow-md">
-    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-gray-50 p-1 overflow-hidden">
-      <img
-        src={logo}
-        alt={logoAlt}
-        className="h-full w-full object-contain mix-blend-multiply"
-      />
+function useImageEdgeColor(src, fallback = "rgb(15,23,42)") {
+  const [color, setColor] = useState(fallback);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+
+        const { width, height } = canvas;
+        const step = 4;
+        const samples = [];
+
+        for (let x = 0; x < width; x += step) {
+          samples.push(ctx.getImageData(x, 0, 1, 1).data);
+          samples.push(ctx.getImageData(x, height - 1, 1, 1).data);
+        }
+        for (let y = 0; y < height; y += step) {
+          samples.push(ctx.getImageData(0, y, 1, 1).data);
+          samples.push(ctx.getImageData(width - 1, y, 1, 1).data);
+        }
+
+        let r = 0, g = 0, b = 0;
+        samples.forEach((d) => { r += d[0]; g += d[1]; b += d[2]; });
+        r = Math.floor(r / samples.length);
+        g = Math.floor(g / samples.length);
+        b = Math.floor(b / samples.length);
+
+        setColor(`rgb(${r},${g},${b})`);
+      } catch (_) {
+        // canvas tainted or other error — keep fallback
+      }
+    };
+  }, [src]);
+
+  return color;
+}
+
+const ExperienceCard = ({ role, company, date, location, logo, logoAlt, logoColor }) => {
+  const edgeColor = useImageEdgeColor(logo);
+  const bgColor = logoColor ?? edgeColor;
+
+  return (
+  <div className="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-2xl">
+    <div className="flex items-start gap-4">
+      <div
+        className="flex h-16 w-16 shrink-0 items-center justify-center rounded-3xl border border-white/10 p-3"
+        style={{ backgroundColor: bgColor }}
+      >
+        <img
+          src={logo}
+          alt={logoAlt}
+          className="h-full w-full object-contain"
+        />
+      </div>
+      <div className="min-w-0">
+        <h3 className="text-lg font-semibold text-white">{role}</h3>
+        <p className="mt-1 text-sm text-slate-400">{company}</p>
+      </div>
     </div>
-    <div className="flex flex-col flex-grow">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-        <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-          {role}
-        </h3>
-        <span className="mt-1 sm:mt-0 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
-          {date}
-        </span>
-      </div>
-      <p className="text-base font-medium text-gray-700 mb-2">{company}</p>
-      <div className="flex items-center gap-1 text-sm text-gray-500">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          className="w-4 h-4 text-gray-400"
-        >
-          <path
-            fillRule="evenodd"
-            d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 002.273 1.765 11.842 11.842 0 00.976.544l.062.029.006.003.002.001.003.001a.79.79 0 00.01.003zM10 11a2 2 0 100-4 2 2 0 000 4z"
-            clipRule="evenodd"
-          />
-        </svg>
-        {location}
-      </div>
+    <div className="mt-5 flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-slate-400">
+      <span className="rounded-full bg-white/10 px-3 py-1">{date}</span>
+      <span className="rounded-full bg-white/10 px-3 py-1">{location}</span>
     </div>
   </div>
-);
+  );
+};
 
 const workExperiences = [
   {
@@ -105,7 +140,8 @@ const clubExperiences = [
     title: "Head of Application Development",
     company: "FiPet",
     logo: fipetLogo,
-    logoAlt: "Cardinal Logo",
+    logoAlt: "FiPet Logo",
+    logoColor: "#e8956d",
   },
   {
     date: "Sep. 2024 - May 2025",
@@ -134,53 +170,10 @@ const clubExperiences = [
 ];
 
 function Work() {
-  const [bgColor, setBgColor] = useState("rgb(140, 62, 62)");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      // UPDATED: Syncs with AboutMe.js
-      const fadeStart = 1200;
-      const fadeEnd = 3200;
-
-      let globalProgress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
-      globalProgress = Math.min(Math.max(globalProgress, 0), 1);
-
-      // Start: #8C3E3E (140, 62, 62)
-      const startRed = 140;
-      const startGreen = 62;
-      const startBlue = 62;
-
-      // UPDATED End: Dark Gray (35, 35, 35)
-      const endRed = 28;
-      const endGreen = 28;
-      const endBlue = 28;
-
-      const red = Math.floor(startRed + (endRed - startRed) * globalProgress);
-      const green = Math.floor(
-        startGreen + (endGreen - startGreen) * globalProgress,
-      );
-      const blue = Math.floor(
-        startBlue + (endBlue - startBlue) * globalProgress,
-      );
-
-      setBgColor(`rgb(${red}, ${green}, ${blue})`);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <div
-      style={{ backgroundColor: bgColor }}
-      className="min-h-screen transition-colors duration-75 ease-linear"
-    >
-      <section className="px-4 py-20">
-        <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen">
+      <section className="relative px-4 py-20">
+        <div className="relative z-10 max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-extrabold tracking-tight text-[#f6e8ea] md:text-5xl lg:text-6xl mb-4">
               My{" "}
@@ -189,7 +182,7 @@ function Work() {
               </span>
             </h1>
             <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-              A timeline of my professional work and extracurricular leadership.
+              A timeline of my professional work and extracurricular involvement.
             </p>
           </div>
 
@@ -220,12 +213,13 @@ function Work() {
                 {workExperiences.map((exp, index) => (
                   <ExperienceCard
                     key={`work-${index}`}
-                    role={exp.title} // Map 'title' from your data to 'role' prop
+                    role={exp.title}
                     company={exp.company}
                     date={exp.date}
                     location={exp.location}
                     logo={exp.logo}
                     logoAlt={exp.logoAlt}
+                    logoColor={exp.logoColor}
                   />
                 ))}
               </div>
@@ -256,13 +250,14 @@ function Work() {
               <div className="flex flex-col gap-4">
                 {clubExperiences.map((exp, index) => (
                   <ExperienceCard
-                    key={`work-${index}`}
-                    role={exp.title} // Map 'title' from your data to 'role' prop
+                    key={`club-${index}`}
+                    role={exp.title}
                     company={exp.company}
                     date={exp.date}
                     location={exp.location}
                     logo={exp.logo}
                     logoAlt={exp.logoAlt}
+                    logoColor={exp.logoColor}
                   />
                 ))}
               </div>

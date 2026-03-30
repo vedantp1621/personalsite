@@ -1,91 +1,260 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+
+const EMOJI_OBJECTS = [
+  { id: "soccer",     emoji: "⚽",           springK: 0.10, damping: 0.87, animClass: "float-a" },
+  { id: "camera",     emoji: "📷",           springK: 0.07, damping: 0.84, animClass: "float-b" },
+  { id: "airplane",   emoji: "✈️",           springK: 0.12, damping: 0.89, animClass: "float-c" },
+  { id: "f1",         emoji: "🏎️",          springK: 0.09, damping: 0.86, animClass: "float-a" },
+  { id: "coding",     emoji: "💻",           springK: 0.08, damping: 0.85, animClass: "float-b" },
+  { id: "gaming",     emoji: "🎮",           springK: 0.11, damping: 0.88, animClass: "float-c" },
+  { id: "headphones", emoji: "🎧",           springK: 0.09, damping: 0.86, animClass: "float-a" },
+  { id: "running",    emoji: "🏃🏽‍♂️‍➡️", springK: 0.10, damping: 0.87, animClass: "float-b" },
+];
+
+// All clustered together at spawn; repulsion will spread them naturally
+const INITIAL_POS = [
+  { xPct: 0.789, yPct: 0.491 },
+  { xPct: 0.794, yPct: 0.491 },
+  { xPct: 0.799, yPct: 0.491 },
+  { xPct: 0.787, yPct: 0.497 },
+  { xPct: 0.792, yPct: 0.497 },
+  { xPct: 0.797, yPct: 0.497 },
+  { xPct: 0.789, yPct: 0.503 },
+  { xPct: 0.796, yPct: 0.503 },
+];
+
+// Box is centered on the spawn cluster
+const BOX_W = 360;
+const BOX_H = 320;
+const BOX_X_PCT = 0.810;
+const BOX_Y_PCT = 0.497;
+
+const EMOJI_SIZE  = 40;
+const PULL_RADIUS = 160;
+const REPULSE_R   = 105;
+const REPULSE_STR = 180;
+
+function attractForce(dx, dy, dist, springK, activation) {
+  const gravPull   = Math.min(REPULSE_STR * 0.025 / dist, 8);
+  const springPull = dist * springK;
+  const t   = Math.min(dist / 300, 1);
+  const mag = (gravPull * (1 - t) + springPull * t) * activation;
+  return { ax: (dx / dist) * mag, ay: (dy / dist) * mag };
+}
 
 function AboutMe() {
   const sectionRef = useRef(null);
-  const [bgColor, setBgColor] = useState("rgb(140, 62, 62)");
 
+  const cursorRef = useRef(null);
+  const posRef    = useRef(INITIAL_POS.map(() => ({ x: 0, y: 0 })));
+  const velRef    = useRef(EMOJI_OBJECTS.map(() => ({ x: 0, y: 0 })));
+  const [positions, setPositions] = useState(null);
+  const [boxRect,   setBoxRect]   = useState(null);
+  // "visible" | "hiding" | "hidden"
+  const [boxState,  setBoxState]  = useState("visible");
+  const boxDismissed = useRef(false);
+  const rafRef = useRef(null);
+
+  // Init positions + box rect
   useEffect(() => {
-    const handleScroll = () => {      
+    const init = () => {
+      if (!sectionRef.current) return;
+      const { width, height } = sectionRef.current.getBoundingClientRect();
+      posRef.current = INITIAL_POS.map((p) => ({
+        x: width  * p.xPct,
+        y: height * p.yPct,
+      }));
+      velRef.current = EMOJI_OBJECTS.map(() => ({ x: 0, y: 0 }));
+      setPositions([...posRef.current]);
+      setBoxRect({
+        x: width  * BOX_X_PCT - BOX_W / 2,
+        y: height * BOX_Y_PCT - BOX_H / 2,
+        w: BOX_W,
+        h: BOX_H,
+      });
+    };
+    init();
+    window.addEventListener("resize", init);
+    return () => window.removeEventListener("resize", init);
+  }, []);
 
-      // --- 2. Global Color Sync ---
-      const scrollY = window.scrollY;
+  // Physics loop
+  useEffect(() => {
+    const tick = () => {
+      if (sectionRef.current) {
+        const { width, height } = sectionRef.current.getBoundingClientRect();
+        const cursor = cursorRef.current;
+        const pos = posRef.current;
+        const vel = velRef.current;
+        const newPos = pos.map((p) => ({ ...p }));
+        const newVel = vel.map((v) => ({ ...v }));
 
-      // UPDATED: "A lot slower"
-      // Range is now 2000px (1200 to 3200), making the transition very gradual
-      const fadeStart = 1200;
-      const fadeEnd = 3200;
+        EMOJI_OBJECTS.forEach((obj, i) => {
+          let ax = 0, ay = 0;
 
-      let globalProgress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
-      globalProgress = Math.min(Math.max(globalProgress, 0), 1);
+          if (cursor) {
+            const dx   = cursor.cx - pos[i].x;
+            const dy   = cursor.cy - pos[i].y;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            if (dist < PULL_RADIUS) {
+              const activation = 1 - dist / PULL_RADIUS;
+              const f = attractForce(dx, dy, dist, obj.springK, activation);
+              ax += f.ax;
+              ay += f.ay;
 
-      // Start: #8C3E3E (140, 62, 62)
-      const startRed = 140;
-      const startGreen = 62;
-      const startBlue = 62;
+              // Dismiss the box the first time any emoji gets pulled
+              if (!boxDismissed.current) {
+                boxDismissed.current = true;
+                setBoxState("hiding");
+                setTimeout(() => setBoxState("hidden"), 450);
+              }
+            }
+          }
 
-      // UPDATED End: Dark Gray (35, 35, 35) instead of pure black
-      const endRed = 28;
-      const endGreen = 28;
-      const endBlue = 28;
+          EMOJI_OBJECTS.forEach((_, j) => {
+            if (i === j) return;
+            const dx = pos[i].x - pos[j].x;
+            const dy = pos[i].y - pos[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            if (dist < REPULSE_R) {
+              const force = REPULSE_STR / (dist * dist);
+              ax += (dx / dist) * force;
+              ay += (dy / dist) * force;
+            }
+          });
 
-      const red = Math.floor(startRed + (endRed - startRed) * globalProgress);
-      const green = Math.floor(
-        startGreen + (endGreen - startGreen) * globalProgress,
-      );
-      const blue = Math.floor(
-        startBlue + (endBlue - startBlue) * globalProgress,
-      );
+          newVel[i] = {
+            x: (vel[i].x + ax) * obj.damping,
+            y: (vel[i].y + ay) * obj.damping,
+          };
+          newPos[i] = {
+            x: Math.min(Math.max(pos[i].x + newVel[i].x, 0), width  - EMOJI_SIZE),
+            y: Math.min(Math.max(pos[i].y + newVel[i].y, 0), height - EMOJI_SIZE),
+          };
+        });
 
-      setBgColor(`rgb(${red}, ${green}, ${blue})`);
+        posRef.current = newPos;
+        velRef.current = newVel;
+        setPositions([...newPos]);
+      }
+
+      rafRef.current = requestAnimationFrame(tick);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
   }, []);
+
+  const handleMouseMove = useCallback((e) => {
+    if (!sectionRef.current) return;
+    const { left, top } = sectionRef.current.getBoundingClientRect();
+    cursorRef.current = { cx: e.clientX - left, cy: e.clientY - top };
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    cursorRef.current = null;
+  }, []);
+
 
   return (
     <section
       ref={sectionRef}
-      style={{ backgroundColor: bgColor }}
-      className="relative transition-colors duration-75 ease-linear"
+      className="relative"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
-      <div
-        style={{ backgroundColor: bgColor }}
-        className="max-w-screen lg:h-[500px] md:h-[800px] sm:h-[1100px] -translate-y-20 skew-y-3 grid w-screen-xl px-4 py-20 mx-auto lg:gap-15 xl:gap-0 lg:py-20 lg:grid-cols-12 transition-colors duration-75 ease-linear"
-      >
-        <div className="col-span-12 lg:col-span-6 -skew-y-3 translate-x-5">
-          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-[#f6e8ea]">
-            About{" "}
-            <span className="underline underline-offset-3 decoration-red-300">
-              Me
-            </span>
-          </h1>
+      {/* Hobbies box */}
+      {boxRect && boxState !== "hidden" && (
+        <div
+          style={{
+            position: "absolute",
+            left: boxRect.x,
+            top: boxRect.y,
+            width: boxRect.w,
+            height: boxRect.h,
+            opacity: boxState === "hiding" ? 0 : 1,
+            transition: "opacity 0.4s ease",
+            pointerEvents: "none",
+            zIndex: 5,
+            borderRadius: "20px",
+            border: "1px dashed rgba(255,255,255,0.25)",
+            background: "rgba(255,255,255,0.04)",
+            backdropFilter: "blur(6px)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            paddingTop: "14px",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.65rem",
+              fontWeight: 700,
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.45)",
+            }}
+          >
+            my hobbies
+          </span>
+        </div>
+      )}
 
-          <div className="flex flex-col lg:flex-row lg:w-[1000px] max-w-screen">
-            <div className="mt-10 md:w-[950px] w-[300px]">
-              <p className="mb-3 text-gray-200 first-letter:text-9xl text-xl first-letter:font-bold first-letter:text-gray-100 first-letter:mr-3 first-letter:float-left">
-                I knew I loved technology the day I stepped into my first high
-                school computer science class. Immediately hooked by the endless
-                possibilities, I knew that I wanted to become a Software
-                Engineer. Now, at the University of Wisconsin-Madison, I am
-                growing everyday, quickly turning those dreams into reality.
-              </p>
+      {/* Emojis */}
+      {positions &&
+        EMOJI_OBJECTS.map((obj, i) => (
+          <span
+            key={obj.id}
+            className={`about-me-emoji ${obj.animClass}`}
+            style={{ left: positions[i].x, top: positions[i].y }}
+          >
+            {obj.emoji}
+          </span>
+        ))}
 
-              <p className="mb-3 text-gray-200 text-xl">
-                I see myself as a curious, driven team player who is not afraid
-                to jump into the deep end. I love a challenge, and am always
-                looking for opportunities. Outside of class, I love soccer and
-                music, and am always looking to enjoy the beautiful city of
-                Madison.
-              </p>
-              <p className="text-gray-100 font-bold">
-                This website is dedicated to documenting my internships and
-                projects in CS, along with the things that make me who I am.
-              </p>
+      <div className="relative mx-auto max-w-screen-xl px-6 py-20 lg:px-8">
+        <div className="flex items-start gap-12">
+          {/* Left: 2/3 text content */}
+          <div className="flex-[2] min-w-0">
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-red-200">
+              About Me
+            </p>
+            <h2 className="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+              About the things I love and build
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-200 sm:text-lg">
+              I build software that moves with purpose. As a current sophomore
+              at UW-Madison, I'm always looking to build my skills. I love the
+              challenge of building a project from the ground up, and always try
+              to apply myself to real-world situations. Outside of CS, I obsess
+              myself in some of my hobbies shown here :)
+            </p>
+            <div className="mt-10 rounded-[32px] border border-white/10 bg-white/10 p-10 backdrop-blur-xl">
+              <h3 className="text-3xl font-bold tracking-tight text-white">
+                The motive behind my work.
+              </h3>
+              <div className="mt-8 space-y-6 text-base leading-7 text-slate-200 sm:text-lg">
+                <p>
+                  I knew I loved technology the day I stepped into my first high
+                  school computer science class. Immediately hooked by the
+                  endless possibilities, I knew that I wanted to become a
+                  Software Engineer.
+                </p>
+                <p>
+                  Today, I combine my curiosity for sports, photography, and
+                  travel into software that feels dynamic, thoughtful, and fun.
+                </p>
+                <p className="text-slate-100 font-semibold">
+                  I love shipping code that solves real problems. I move
+                  fast while staying thorough, and welcome challenges that push me
+                  to learn quickly.{" "}
+                </p>
+              </div>
             </div>
           </div>
+
+          {/* Right: 1/3 emoji zone */}
+          <div className="flex-1 self-stretch min-h-[420px] hidden md:block" />
         </div>
       </div>
     </section>

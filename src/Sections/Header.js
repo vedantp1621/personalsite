@@ -3,10 +3,9 @@ import Typer from "./Typer.js";
 import profileImg from "./Assets/me.jpg";
 import resume from "./Assets/Patel_Vedant_Resume.pdf";
 
-
 function Header() {
   return (
-    <section className="bg-[#8C3E3E]">
+    <section>
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-15 xl:gap-0 lg:py-20 lg:grid-cols-12">
         <div className="p-5 mr-auto place-self-center lg:col-span-7">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">
