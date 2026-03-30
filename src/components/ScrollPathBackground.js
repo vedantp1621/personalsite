@@ -1,16 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
 function ScrollPathBackground() {
   const wrapperRef = useRef(null);
   const pathRef = useRef(null);
-  const [arrow, setArrow] = useState({ x: 80, y: 120, angle: 0 });
+  const arrowRef = useRef(null);
 
   useEffect(() => {
     const path = pathRef.current;
     const wrapper = wrapperRef.current;
-    if (!path || !wrapper) return;
+    const arrowG = arrowRef.current;
+    if (!path || !wrapper || !arrowG) return;
     if (typeof path.getTotalLength !== "function") return;
 
     const length = path.getTotalLength();
@@ -18,27 +19,17 @@ function ScrollPathBackground() {
     const updateArrow = () => {
       const rect = wrapper.getBoundingClientRect();
       const winHeight = window.innerHeight;
-
-      // Distance from page top to wrapper top — constant regardless of scroll
       const wrapperTop = rect.top + window.scrollY;
       const maxScroll = document.documentElement.scrollHeight - winHeight;
-
-      // Arrow begins tracking when the wrapper's top is at startPoint from the viewport top
       const startPoint = winHeight * 0.1;
-
-      // travelDistance is set so progress === 1 exactly when scrollY === maxScroll
       const travelDistance = maxScroll - wrapperTop + startPoint;
-
       const progress = clamp((startPoint - rect.top) / travelDistance, 0, 1);
 
       const point = path.getPointAtLength(progress * length);
-      const next = path.getPointAtLength(
-        Math.min(progress * length + 1, length),
-      );
-      const angle =
-        Math.atan2(next.y - point.y, next.x - point.x) * (180 / Math.PI);
+      const next = path.getPointAtLength(Math.min(progress * length + 1, length));
+      const angle = Math.atan2(next.y - point.y, next.x - point.x) * (180 / Math.PI);
 
-      setArrow({ x: point.x, y: point.y, angle });
+      arrowG.setAttribute("transform", `translate(${point.x}, ${point.y}) rotate(${angle}) scale(0.85)`);
     };
 
     updateArrow();
@@ -67,13 +58,6 @@ function ScrollPathBackground() {
             <stop offset="0%" stopColor="rgba(248,146,176,0.28)" />
             <stop offset="100%" stopColor="rgba(139,92,246,0.28)" />
           </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-            <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
         <path
@@ -85,12 +69,9 @@ function ScrollPathBackground() {
           strokeLinecap="round"
           strokeLinejoin="round"
           opacity="0.45"
-          filter="url(#glow)"
         />
 
-        <g
-          transform={`translate(${arrow.x}, ${arrow.y}) rotate(${arrow.angle}) scale(0.85)`}
-        >
+        <g ref={arrowRef} transform="translate(80, 120) scale(0.85)">
           <path d="M0 -3 L 9 0 L 0 3 Z" fill="rgba(248,146,176,0.85)" />
         </g>
       </svg>

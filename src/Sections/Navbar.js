@@ -2,9 +2,9 @@ import { Disclosure} from '@headlessui/react'
 
 import logo from './Assets/logo.jpeg'
 
-export default function Navbar({ bgColor }) {
+export default function Navbar({ navRef }) {
   return (
-    <Disclosure as="nav" style={{ backgroundColor: bgColor }}>
+    <Disclosure as="nav" ref={navRef} style={{ backgroundColor: "rgb(140,62,62)" }}>
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

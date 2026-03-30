@@ -131,6 +131,7 @@
   user-select: none;
   pointer-events: none;
   z-index: 10;
+  will-change: transform;
 }
 
 .about-me-emoji.float-a {

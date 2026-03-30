@@ -44,19 +44,20 @@ function attractForce(dx, dy, dist, springK, activation) {
 
 function AboutMe() {
   const sectionRef = useRef(null);
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-  const cursorRef = useRef(null);
-  const posRef    = useRef(INITIAL_POS.map(() => ({ x: 0, y: 0 })));
-  const velRef    = useRef(EMOJI_OBJECTS.map(() => ({ x: 0, y: 0 })));
-  const [positions, setPositions] = useState(null);
-  const [boxRect,   setBoxRect]   = useState(null);
-  // "visible" | "hiding" | "hidden"
-  const [boxState,  setBoxState]  = useState("visible");
+  const cursorRef    = useRef(null);
+  const posRef       = useRef(INITIAL_POS.map(() => ({ x: 0, y: 0 })));
+  const velRef       = useRef(EMOJI_OBJECTS.map(() => ({ x: 0, y: 0 })));
+  const emojiElsRef  = useRef([]);  // direct refs to emoji DOM nodes
+  const boxElRef     = useRef(null);
   const boxDismissed = useRef(false);
-  const rafRef = useRef(null);
+  const rafRef       = useRef(null);
+  const [boxRect, setBoxRect] = useState(null);
 
-  // Init positions + box rect
+  // Init positions + box rect — desktop only
   useEffect(() => {
+    if (isMobile) return;
     const init = () => {
       if (!sectionRef.current) return;
       const { width, height } = sectionRef.current.getBoundingClientRect();
@@ -65,7 +66,13 @@ function AboutMe() {
         y: height * p.yPct,
       }));
       velRef.current = EMOJI_OBJECTS.map(() => ({ x: 0, y: 0 }));
-      setPositions([...posRef.current]);
+      // Apply initial positions directly to DOM
+      emojiElsRef.current.forEach((el, i) => {
+        if (el) {
+          el.style.left = posRef.current[i].x + "px";
+          el.style.top  = posRef.current[i].y + "px";
+        }
+      });
       setBoxRect({
         x: width  * BOX_X_PCT - BOX_W / 2,
         y: height * BOX_Y_PCT - BOX_H / 2,
@@ -76,10 +83,11 @@ function AboutMe() {
     init();
     window.addEventListener("resize", init);
     return () => window.removeEventListener("resize", init);
-  }, []);
+  }, [isMobile]);
 
-  // Physics loop
+  // Physics loop — desktop only, writes directly to DOM
   useEffect(() => {
+    if (isMobile) return;
     const tick = () => {
       if (sectionRef.current) {
         const { width, height } = sectionRef.current.getBoundingClientRect();
@@ -102,11 +110,12 @@ function AboutMe() {
               ax += f.ax;
               ay += f.ay;
 
-              // Dismiss the box the first time any emoji gets pulled
-              if (!boxDismissed.current) {
+              if (!boxDismissed.current && boxElRef.current) {
                 boxDismissed.current = true;
-                setBoxState("hiding");
-                setTimeout(() => setBoxState("hidden"), 450);
+                boxElRef.current.style.opacity = "0";
+                setTimeout(() => {
+                  if (boxElRef.current) boxElRef.current.style.display = "none";
+                }, 450);
               }
             }
           }
@@ -131,11 +140,17 @@ function AboutMe() {
             x: Math.min(Math.max(pos[i].x + newVel[i].x, 0), width  - EMOJI_SIZE),
             y: Math.min(Math.max(pos[i].y + newVel[i].y, 0), height - EMOJI_SIZE),
           };
+
+          // Write directly to DOM — no React state update
+          const el = emojiElsRef.current[i];
+          if (el) {
+            el.style.left = newPos[i].x + "px";
+            el.style.top  = newPos[i].y + "px";
+          }
         });
 
         posRef.current = newPos;
         velRef.current = newVel;
-        setPositions([...newPos]);
       }
 
       rafRef.current = requestAnimationFrame(tick);
@@ -143,7 +158,7 @@ function AboutMe() {
 
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
-  }, []);
+  }, [isMobile]);
 
   const handleMouseMove = useCallback((e) => {
     if (!sectionRef.current) return;
@@ -163,23 +178,23 @@ function AboutMe() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Hobbies box */}
-      {boxRect && boxState !== "hidden" && (
+      {/* Hobbies box — desktop only */}
+      {!isMobile && boxRect && (
         <div
+          ref={boxElRef}
           style={{
             position: "absolute",
             left: boxRect.x,
             top: boxRect.y,
             width: boxRect.w,
             height: boxRect.h,
-            opacity: boxState === "hiding" ? 0 : 1,
+            opacity: 1,
             transition: "opacity 0.4s ease",
             pointerEvents: "none",
             zIndex: 5,
             borderRadius: "20px",
             border: "1px dashed rgba(255,255,255,0.25)",
             background: "rgba(255,255,255,0.04)",
-            backdropFilter: "blur(6px)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -200,13 +215,14 @@ function AboutMe() {
         </div>
       )}
 
-      {/* Emojis */}
-      {positions &&
+      {/* Emojis — desktop only, positions written directly to DOM */}
+      {!isMobile &&
         EMOJI_OBJECTS.map((obj, i) => (
           <span
             key={obj.id}
+            ref={el => emojiElsRef.current[i] = el}
             className={`about-me-emoji ${obj.animClass}`}
-            style={{ left: positions[i].x, top: positions[i].y }}
+            style={{ left: 0, top: 0 }}
           >
             {obj.emoji}
           </span>
@@ -229,7 +245,7 @@ function AboutMe() {
               to apply myself to real-world situations. Outside of CS, I obsess
               myself in some of my hobbies shown here :)
             </p>
-            <div className="mt-10 rounded-[32px] border border-white/10 bg-white/10 p-10 backdrop-blur-xl">
+            <div className="mt-10 rounded-[32px] border border-white/10 bg-white/10 p-10">
               <h3 className="text-3xl font-bold tracking-tight text-white">
                 The motive behind my work.
               </h3>
