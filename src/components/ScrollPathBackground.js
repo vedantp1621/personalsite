@@ -11,6 +11,7 @@ function ScrollPathBackground() {
     const path = pathRef.current;
     const wrapper = wrapperRef.current;
     if (!path || !wrapper) return;
+    if (typeof path.getTotalLength !== "function") return;
 
     const length = path.getTotalLength();
 
