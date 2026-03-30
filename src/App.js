@@ -12,7 +12,7 @@ import ScrollPathBackground from "./components/ScrollPathBackground";
 function App() {
   const rootRef = useRef(null);
   const navRef = useRef(null);
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isMobile = typeof window.matchMedia === "function" && window.matchMedia("(max-width: 767px)").matches;
 
   useEffect(() => {
     const onScroll = () => {

@@ -44,7 +44,7 @@ function attractForce(dx, dy, dist, springK, activation) {
 
 function AboutMe() {
   const sectionRef = useRef(null);
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isMobile = typeof window.matchMedia === "function" && window.matchMedia("(max-width: 767px)").matches;
 
   const cursorRef    = useRef(null);
   const posRef       = useRef(INITIAL_POS.map(() => ({ x: 0, y: 0 })));
