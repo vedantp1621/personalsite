@@ -1,9 +1,11 @@
 import ModernCard from "../components/ModernCard";
+import pcbaDemo from "./Assets/PCBA_demo.mp4";
 
 const projectCards = [
   {
     tag: "Demo",
     tagColor: "bg-red-100 text-red-800",
+    video: pcbaDemo,
     title: "Modern AOI System for Plexus",
     description:
       "Built during a UW-Madison College of Engineering hackathon, this Automatic Optical Inspection system uses Raspberry Pi image capture, OpenCV preprocessing, YOLO inference, and Gemini-powered analysis for reliable defect detection.",
@@ -108,7 +110,7 @@ function ProjectsModern() {
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="columns-1 lg:columns-2 gap-8">
           {projectCards.map((project, index) => (
             <ModernCard
               key={index}
@@ -117,6 +119,7 @@ function ProjectsModern() {
               title={project.title}
               description={project.description}
               actions={project.actions}
+              video={project.video}
             />
           ))}
         </div>

@@ -6,9 +6,22 @@ function ModernCard({
   title,
   description,
   actions = [],
+  video,
 }) {
   return (
-    <article className="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-8 shadow-[0_24px_80px_rgba(15,23,42,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10">
+    <article className="group break-inside-avoid mb-8 overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-8 shadow-[0_24px_80px_rgba(15,23,42,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10">
+      {video && (
+        <video
+          src={video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="mb-6 w-full rounded-2xl object-cover"
+          style={{ maxHeight: "300px" }}
+        />
+      )}
+
       {tag && (
         <span
           className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${tagColor}`}
