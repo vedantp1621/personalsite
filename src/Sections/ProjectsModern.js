@@ -1,5 +1,8 @@
 import ModernCard from "../components/ModernCard";
 import pcbaDemo from "./Assets/PCBA_demo.mp4";
+import fipetDemo from "./Assets/FiPet_Demo.MP4";
+import appStoreBadge from "./Assets/App_Store_(iOS).svg.png";
+import linkedinLogo from "./Assets/linkedin-logo-3.png";
 
 const projectCards = [
   {
@@ -10,7 +13,10 @@ const projectCards = [
     description:
       "Built during a UW-Madison College of Engineering hackathon, this Automatic Optical Inspection system uses Raspberry Pi image capture, OpenCV preprocessing, YOLO inference, and Gemini-powered analysis for reliable defect detection.",
     actions: [
-      { label: "Live Demo", href: "https://pi-board-defect-check.vercel.app/" },
+      {
+        label: "Live Deployment",
+        href: "https://pi-board-defect-check.vercel.app/",
+      },
       {
         label: "Presentation",
         href: "https://docs.google.com/presentation/d/18VKaJLHzY4rMYWQ_fbT5b8GAPxFkK4puDeHL9O0XUfw/edit?usp=sharing",
@@ -32,19 +38,6 @@ const projectCards = [
   },
   {
     tag: "Image Demo",
-    tagColor: "bg-yellow-100 text-yellow-800",
-    title: "Amazon.com Product Analyzer",
-    description:
-      "A sentiment pipeline built with Python, MySQL, and NLP. Processed millions of reviews and trained models that classify product sentiment across thousands of Amazon reviews.",
-    actions: [
-      {
-        label: "Demo Coming Soon",
-        href: "https://vedantp1621.github.io/personalsite/",
-      },
-    ],
-  },
-  {
-    tag: "Image Demo",
     tagColor: "bg-pink-100 text-pink-800",
     title: "Raspberry Pi OCR Summarizer",
     description:
@@ -58,11 +51,33 @@ const projectCards = [
   },
   {
     tag: "Demo",
+    tagColor: "bg-orange-100 text-orange-800",
+    title: "FiPet",
+    description:
+      "Scaling a cross-platform mobile app focused on gamified, AI-powered financial education for Gen Z. Before launch, we grew a 200+ user waitlist, and now have 70+ concurrent users. The app continues to grow, and our founding team has almost quadrupled in size to about 25 people, with marketing, graphic design, and software engineering teams working in the background.",
+    actions: [
+      { label: "fipet.dev", href: "https://www.fipet.dev/" },
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/us/app/fipet/id6751675558",
+        icon: appStoreBadge,
+      },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/company/fipet/",
+        icon: linkedinLogo,
+      },
+    ],
+    video: fipetDemo,
+    layout: "side",
+  },
+  {
+    tag: "Demo",
     tagColor: "bg-green-100 text-green-800",
     title: "Webscrapers",
     description:
       "A full-stack web development venture building custom websites for local businesses with React, Tailwind CSS, and Vite.",
-    actions: [{ label: "Visit Site", href: "https://webscrapers.org/" }],
+    actions: [{ label: "webscrapers.org", href: "https://webscrapers.org/" }],
   },
   {
     tag: "Image Demo",
@@ -93,9 +108,7 @@ const projectCards = [
 
 function ProjectsModern() {
   return (
-    <section
-      className="relative min-h-screen py-16"
-    >
+    <section className="relative min-h-screen py-16">
       <div className="relative z-10 mx-auto max-w-screen-xl px-6 lg:px-8">
         <div className="mb-12 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-red-200">
@@ -120,6 +133,8 @@ function ProjectsModern() {
               description={project.description}
               actions={project.actions}
               video={project.video}
+              layout={project.layout}
+              columnBreak={project.columnBreak}
             />
           ))}
         </div>

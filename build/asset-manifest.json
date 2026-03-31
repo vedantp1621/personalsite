@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/personalsite/static/css/main.9b037f89.css",
-    "main.js": "/personalsite/static/js/main.d58cae23.js",
+    "main.css": "/personalsite/static/css/main.cd05ce61.css",
+    "main.js": "/personalsite/static/js/main.ba44e1bd.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
+    "static/media/FiPet_Demo.MP4": "/personalsite/static/media/FiPet_Demo.71c4f836ce90a5805c13.MP4",
     "static/media/PCBA_demo.mp4": "/personalsite/static/media/PCBA_demo.88c240c318df90e35574.mp4",
     "static/media/me.jpg": "/personalsite/static/media/me.e0fcf5e5450dfdb745a5.jpg",
     "static/media/Patel_Vedant_Resume.pdf": "/personalsite/static/media/Patel_Vedant_Resume.b63d253d2f4eb2bad91b.pdf",
@@ -15,12 +16,12 @@
     "static/media/FiPet.png": "/personalsite/static/media/FiPet.f33f0b475212df393430.png",
     "static/media/CSKLogo.jpeg": "/personalsite/static/media/CSKLogo.ef77fb083516deefa5cb.jpeg",
     "index.html": "/personalsite/index.html",
-    "main.9b037f89.css.map": "/personalsite/static/css/main.9b037f89.css.map",
-    "main.d58cae23.js.map": "/personalsite/static/js/main.d58cae23.js.map",
+    "main.cd05ce61.css.map": "/personalsite/static/css/main.cd05ce61.css.map",
+    "main.ba44e1bd.js.map": "/personalsite/static/js/main.ba44e1bd.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b037f89.css",
-    "static/js/main.d58cae23.js"
+    "static/css/main.cd05ce61.css",
+    "static/js/main.ba44e1bd.js"
   ]
 }
