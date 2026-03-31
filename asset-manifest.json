@@ -1,12 +1,14 @@
 {
   "files": {
-    "main.css": "/personalsite/static/css/main.b111bbe0.css",
-    "main.js": "/personalsite/static/js/main.bc496deb.js",
+    "main.css": "/personalsite/static/css/main.bf3abf51.css",
+    "main.js": "/personalsite/static/js/main.f530da96.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
+    "static/media/FiPet_Demo.MP4": "/personalsite/static/media/FiPet_Demo.71c4f836ce90a5805c13.MP4",
     "static/media/PCBA_demo.mp4": "/personalsite/static/media/PCBA_demo.88c240c318df90e35574.mp4",
     "static/media/me.jpg": "/personalsite/static/media/me.e0fcf5e5450dfdb745a5.jpg",
     "static/media/Patel_Vedant_Resume.pdf": "/personalsite/static/media/Patel_Vedant_Resume.b63d253d2f4eb2bad91b.pdf",
     "static/media/usbank.png": "/personalsite/static/media/usbank.ec002a92dbd770c0d147.png",
+    "static/media/App_Store_(iOS).svg.png": "/personalsite/static/media/App_Store_(iOS).svg.6e0d2d2369057218c153.png",
     "static/media/wisconsinLogo.jpg": "/personalsite/static/media/wisconsinLogo.76e63f9975a3d52d9183.jpg",
     "static/media/logo2.jpeg": "/personalsite/static/media/logo2.f916f0a04ab8b5931808.jpeg",
     "static/media/logo.jpeg": "/personalsite/static/media/logo.bf2e1e301cf790d983c5.jpeg",
@@ -15,12 +17,12 @@
     "static/media/FiPet.png": "/personalsite/static/media/FiPet.f33f0b475212df393430.png",
     "static/media/CSKLogo.jpeg": "/personalsite/static/media/CSKLogo.ef77fb083516deefa5cb.jpeg",
     "index.html": "/personalsite/index.html",
-    "main.b111bbe0.css.map": "/personalsite/static/css/main.b111bbe0.css.map",
-    "main.bc496deb.js.map": "/personalsite/static/js/main.bc496deb.js.map",
+    "main.bf3abf51.css.map": "/personalsite/static/css/main.bf3abf51.css.map",
+    "main.f530da96.js.map": "/personalsite/static/js/main.f530da96.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b111bbe0.css",
-    "static/js/main.bc496deb.js"
+    "static/css/main.bf3abf51.css",
+    "static/js/main.f530da96.js"
   ]
 }
