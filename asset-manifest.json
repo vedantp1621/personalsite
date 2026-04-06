@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/personalsite/static/css/main.bf3abf51.css",
-    "main.js": "/personalsite/static/js/main.f530da96.js",
+    "main.js": "/personalsite/static/js/main.bdc8746d.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
+    "static/media/FocusAI_demo.mov": "/personalsite/static/media/FocusAI_demo.ab1ddda1cde8fdfd7027.mov",
     "static/media/FiPet_Demo.MP4": "/personalsite/static/media/FiPet_Demo.71c4f836ce90a5805c13.MP4",
     "static/media/PCBA_demo.mp4": "/personalsite/static/media/PCBA_demo.88c240c318df90e35574.mp4",
     "static/media/me.jpg": "/personalsite/static/media/me.e0fcf5e5450dfdb745a5.jpg",
@@ -18,11 +19,11 @@
     "static/media/CSKLogo.jpeg": "/personalsite/static/media/CSKLogo.ef77fb083516deefa5cb.jpeg",
     "index.html": "/personalsite/index.html",
     "main.bf3abf51.css.map": "/personalsite/static/css/main.bf3abf51.css.map",
-    "main.f530da96.js.map": "/personalsite/static/js/main.f530da96.js.map",
+    "main.bdc8746d.js.map": "/personalsite/static/js/main.bdc8746d.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bf3abf51.css",
-    "static/js/main.f530da96.js"
+    "static/js/main.bdc8746d.js"
   ]
 }
