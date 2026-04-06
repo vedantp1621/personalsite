@@ -1,7 +1,7 @@
 import ModernCard from "../components/ModernCard";
 import pcbaDemo from "./Assets/PCBA_demo.mp4";
 import fipetDemo from "./Assets/FiPet_Demo.MP4";
-import focusAIDemo from "./Assets/FocusAI_demo.mov";
+import focusAIDemo from "./Assets/FocusAI_demo.mp4";
 import appStoreBadge from "./Assets/App_Store_(iOS).svg.png";
 import linkedinLogo from "./Assets/linkedin-logo-3.png";
 
