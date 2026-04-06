@@ -1,6 +1,7 @@
 import ModernCard from "../components/ModernCard";
 import pcbaDemo from "./Assets/PCBA_demo.mp4";
 import fipetDemo from "./Assets/FiPet_Demo.MP4";
+import focusAIDemo from "./Assets/FocusAI_demo.mov";
 import appStoreBadge from "./Assets/App_Store_(iOS).svg.png";
 import linkedinLogo from "./Assets/linkedin-logo-3.png";
 
@@ -26,7 +27,8 @@ const projectCards = [
   {
     tag: "Demo",
     tagColor: "bg-teal-100 text-teal-800",
-    title: "GazeSafe",
+    video: focusAIDemo,
+    title: "FocusAI",
     description:
       "A computer vision system that detects distraction in webcam streams using YOLOv8 and ResNet50, real-time embeddings, and FAISS similarity search for accurate distraction assessment.",
     actions: [
