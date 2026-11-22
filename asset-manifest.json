@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/personalsite/static/css/main.61226ab0.css",
-    "main.js": "/personalsite/static/js/main.5eb94dba.js",
+    "main.js": "/personalsite/static/js/main.8927dc37.js",
     "static/js/709.49b85de7.chunk.js": "/personalsite/static/js/709.49b85de7.chunk.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
     "static/js/780.f60ddbb7.chunk.js": "/personalsite/static/js/780.f60ddbb7.chunk.js",
@@ -31,13 +31,13 @@
     "index.html": "/personalsite/index.html",
     "static/media/quotvero.svg": "/personalsite/static/media/quotvero.fcebf3b299904f184d7f4b2c9ff0ab62.svg",
     "main.61226ab0.css.map": "/personalsite/static/css/main.61226ab0.css.map",
-    "main.5eb94dba.js.map": "/personalsite/static/js/main.5eb94dba.js.map",
+    "main.8927dc37.js.map": "/personalsite/static/js/main.8927dc37.js.map",
     "709.49b85de7.chunk.js.map": "/personalsite/static/js/709.49b85de7.chunk.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map",
     "780.f60ddbb7.chunk.js.map": "/personalsite/static/js/780.f60ddbb7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.61226ab0.css",
-    "static/js/main.5eb94dba.js"
+    "static/js/main.8927dc37.js"
   ]
 }
