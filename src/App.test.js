@@ -1,6 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 jest.mock("./data/vaultPhotos", () => []);
+jest.mock("./components/VaultCameraBackground", () => function MockCamera({ onStateChange }) {
+  const { useEffect } = require("react");
+  useEffect(() => onStateChange("ready"), [onStateChange]);
+  return null;
+});
 jest.mock("./lib/vaultCameraAssets", () => ({ preloadVaultCamera: jest.fn() }));
 import baseline from "../docs/redesign-baseline.json";
 import {

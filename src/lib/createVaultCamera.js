@@ -9,6 +9,7 @@ import {
 // This module is preloaded at startup; WebGL initializes only inside Photo Vault.
 // Original files stay intact and decoded textures respect the device budget.
 export function createVaultCamera(host, { onReady, onError }) {
+  let announcedReady = false;
   const abort = new AbortController();
   let disposed = false,
     visible = true,
@@ -84,6 +85,10 @@ export function createVaultCamera(host, { onReady, onError }) {
       -0.025,
     );
     renderer.render(scene, camera);
+    if (!announcedReady) {
+      announcedReady = true;
+      onReady();
+    }
     if (!reduced && Math.abs(progress - targetProgress) > 0.0001)
       frame = requestAnimationFrame(render);
   };
@@ -183,6 +188,24 @@ export function createVaultCamera(host, { onReady, onError }) {
     turntable.scale.setScalar(2.6 / Math.max(size.x, size.y, size.z));
     turntable.add(model);
 
+    // Upload textures in separate tasks so the loader can keep compositing
+    // instead of paying for every GPU upload during one enormous first frame.
+    const textures = new Set();
+    model.traverse((object) => {
+      for (const material of [object.material].flat().filter(Boolean)) {
+        Object.values(material).forEach((value) => {
+          if (value?.isTexture) textures.add(value);
+        });
+      }
+    });
+    for (const texture of textures) {
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      if (disposed) return;
+      renderer.initTexture(texture);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    if (disposed) return;
+
     // Studio reflections illuminate the model but never become a visible
     // background or floor. Only the camera geometry is drawn to the canvas.
     const pmrem = new THREE.PMREMGenerator(renderer);
@@ -195,8 +218,10 @@ export function createVaultCamera(host, { onReady, onError }) {
     const rim = new THREE.DirectionalLight(0xe4edf7, 1.2);
     rim.position.set(-3, 1, -3);
     scene.add(key, rim, new THREE.HemisphereLight(0xffffff, 0x35404b, 0.65));
+    renderer.compile(scene, camera);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    if (disposed) return;
     invalidate();
-    onReady();
   };
   ready().catch(() => {
     if (!disposed) onError();

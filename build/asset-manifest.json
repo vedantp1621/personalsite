@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/personalsite/static/css/main.61226ab0.css",
-    "main.js": "/personalsite/static/js/main.5eb94dba.js",
-    "static/js/709.49b85de7.chunk.js": "/personalsite/static/js/709.49b85de7.chunk.js",
+    "main.css": "/personalsite/static/css/main.3637484b.css",
+    "main.js": "/personalsite/static/js/main.2b11f0dc.js",
+    "static/js/709.632ad907.chunk.js": "/personalsite/static/js/709.632ad907.chunk.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
     "static/js/780.f60ddbb7.chunk.js": "/personalsite/static/js/780.f60ddbb7.chunk.js",
     "static/media/focus-ai-demo.mp4": "/personalsite/static/media/focus-ai-demo.ab1ddda1cde8fdfd7027.mp4",
@@ -30,14 +30,14 @@
     "static/media/compsci-kids.jpeg": "/personalsite/static/media/compsci-kids.ef77fb083516deefa5cb.jpeg",
     "index.html": "/personalsite/index.html",
     "static/media/quotvero.svg": "/personalsite/static/media/quotvero.fcebf3b299904f184d7f4b2c9ff0ab62.svg",
-    "main.61226ab0.css.map": "/personalsite/static/css/main.61226ab0.css.map",
-    "main.5eb94dba.js.map": "/personalsite/static/js/main.5eb94dba.js.map",
-    "709.49b85de7.chunk.js.map": "/personalsite/static/js/709.49b85de7.chunk.js.map",
+    "main.3637484b.css.map": "/personalsite/static/css/main.3637484b.css.map",
+    "main.2b11f0dc.js.map": "/personalsite/static/js/main.2b11f0dc.js.map",
+    "709.632ad907.chunk.js.map": "/personalsite/static/js/709.632ad907.chunk.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map",
     "780.f60ddbb7.chunk.js.map": "/personalsite/static/js/780.f60ddbb7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.61226ab0.css",
-    "static/js/main.5eb94dba.js"
+    "static/css/main.3637484b.css",
+    "static/js/main.2b11f0dc.js"
   ]
 }

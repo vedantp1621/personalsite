@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { afterPaint } from "../lib/afterPaint";
 
-export default function VaultCameraBackground({ sectionRef }) {
+export default function VaultCameraBackground({ sectionRef, onStateChange }) {
   const hostRef = useRef(null);
   const [state, setState] = useState("loading");
+
+  useEffect(() => {
+    onStateChange?.(state);
+  }, [state, onStateChange]);
 
   useEffect(() => {
     if (!window.IntersectionObserver) {
@@ -40,7 +45,7 @@ export default function VaultCameraBackground({ sectionRef }) {
     };
 
     deadline = setTimeout(fail, 45000);
-    import("../lib/createVaultCamera")
+    const cancelStart = afterPaint(() => import("../lib/createVaultCamera")
       .then(({ createVaultCamera }) => {
         if (disposed || failed) return;
         try {
@@ -70,7 +75,7 @@ export default function VaultCameraBackground({ sectionRef }) {
           fail();
         }
       })
-      .catch(fail);
+      .catch(fail));
 
     const resize = () => {
       engine?.resize();
@@ -91,6 +96,7 @@ export default function VaultCameraBackground({ sectionRef }) {
     motion.addEventListener("change", schedule);
     return () => {
       disposed = true;
+      cancelStart();
       clearTimeout(deadline);
       cancelAnimationFrame(scheduled);
       observer?.disconnect();
