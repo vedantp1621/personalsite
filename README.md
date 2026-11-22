@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Vedant Patel — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio, project archive, and Photo Vault built with React.
 
-## Available Scripts
+## Run locally
 
-In the project directory, you can run:
+```sh
+npm install
+npm start
+```
 
-### `npm start`
+Open [localhost:3000/personalsite/](http://localhost:3000/personalsite/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```sh
+npm run build                       # Production output in build/
+CI=true npm test -- --runInBand      # Regression tests
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project layout
 
-### `npm test`
+```text
+src/
+  Sections/            Page sections and screens
+  components/          Shared UI and camera components
+  data/                Portfolio content and photo discovery
+  lib/                 Camera loading and rendering
+  assets/
+    branding/          Current VP branding
+    documents/         Résumé
+    icons/             Social icons and store badges
+    images/
+      campus/          Campus section images
+      portraits/       Headshot
+    logos/             Company, club, and project logos
+    photos/            Photo Vault gallery images
+    videos/            Project demos
+public/
+  branding/            Branding used by HTML and the web manifest
+  models/              Runtime camera model, textures, and license
+asset-sources/
+  originals/           Original uploads, retained for reference
+  legacy/              Older branding, portrait, and starter images
+  models/              Original model download archive
+docs/                 Design notes and camera documentation
+build/                 Generated production site; do not edit directly
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Edit roles, projects, skills, and campus involvement in `src/data/portfolio.js`.
+Put new logos in `src/assets/logos/` and import them into that data file.
 
-### `npm run build`
+Add gallery photos to `src/assets/photos/`; Photo Vault discovers supported
+images automatically, including subfolders. See that folder's README for naming
+and ordering. Images elsewhere in `src/assets/` do not enter the gallery.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Keep original uploads in `asset-sources/` and place site-ready assets in
+`src/assets/`. Imported assets receive build-generated URLs compatible with the
+GitHub Pages `/personalsite/` base path. Camera assets live in `public/models/`
+because their glTF files use relative references to textures and binary data.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The public VP logo is also needed in `src/assets/branding/` for React imports.
+When changing that logo, update both copies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deployment
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`npm run build` prepares the site without publishing it. The existing
+`npm run deploy` command publishes `build/` to GitHub Pages when explicitly run.

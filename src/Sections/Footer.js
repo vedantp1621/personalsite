@@ -1,39 +1,29 @@
-import React from "react";
-import logo from "./Assets/logo2.jpeg";
-
-function Footer() {
+import logo from "../assets/branding/vp-wisconsin-red.svg";
+export default function Footer() {
   return (
-    <footer className="p-4 md:p-8 lg:p-10">
-      <div className="mx-auto max-w-screen-xl">
-        <p className="flex justify-center items-center text-2xl font-semibold text-white">
-          <img className="h-16 w-auto" src={logo} alt="Workflow" />
-        </p>
-        <p className="my-6 text-lg text-[#f6e8ea] text-center">
-          Thank you for taking time to view my page. Here are my contacts!
-        </p>
-        <div className="flex flex-wrap justify-center items-center mb-6 text-white">
-          <p>
-            <a
-              href="https://github.com/vedantp1621"
-              className="mr-4 hover:underline md:mr-6 "
-            >
-              Github
-            </a>
-          </p>
-
-          <a
-            href="https://www.linkedin.com/in/vedant-p-patel/"
-            className="mr-4 hover:underline md:mr-6"
-          >
-            LinkedIn
-          </a>
-
-          <p className="mr-4 md:mr-6 ">vppatel3@wisc.edu</p>
-          <p className="mr-4 md:mr-6 ">(815)-416-5778</p>
+    <footer id="contact" className="contact section-pad">
+      <p className="eyebrow">Have something in mind?</p>
+      <h2>
+        Let's make
+        <br />
+        it happen<span>.</span>
+      </h2>
+      <p className="contact-thanks">
+        Thank you for taking time to view my page. Here are my contacts!
+      </p>
+      <div className="contact-links">
+        <a href="mailto:vppatel3@wisc.edu">vppatel3@wisc.edu</a>
+        <a href="tel:+18154165778">(815)-416-5778</a>
+      </div>
+      <div className="footer-bottom">
+        <img src={logo} alt="VP personal branding" loading="lazy" />
+        <span>Vedant Patel</span>
+        <div>
+          <a href="https://github.com/vedantp1621">GitHub</a>
+          <a href="https://www.linkedin.com/in/vedant-p-patel/">LinkedIn</a>
+          <a href="#home">Back to top</a>
         </div>
       </div>
     </footer>
   );
 }
-
-export default Footer;

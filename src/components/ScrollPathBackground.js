@@ -12,6 +12,7 @@ function ScrollPathBackground() {
     const wrapper = wrapperRef.current;
     const arrowG = arrowRef.current;
     if (!path || !wrapper || !arrowG) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
     if (typeof path.getTotalLength !== "function") return;
 
     const length = path.getTotalLength();
@@ -55,8 +56,8 @@ function ScrollPathBackground() {
       >
         <defs>
           <linearGradient id="scrollPathGradient" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="rgba(248,146,176,0.28)" />
-            <stop offset="100%" stopColor="rgba(139,92,246,0.28)" />
+            <stop offset="0%" stopColor="rgba(197,5,12,0.28)" />
+            <stop offset="100%" stopColor="rgba(155,0,0,0.28)" />
           </linearGradient>
         </defs>
 
@@ -72,7 +73,7 @@ function ScrollPathBackground() {
         />
 
         <g ref={arrowRef} transform="translate(80, 120) scale(0.85)">
-          <path d="M0 -3 L 9 0 L 0 3 Z" fill="rgba(248,146,176,0.85)" />
+          <path d="M0 -3 L 9 0 L 0 3 Z" fill="rgba(197,5,12,0.85)" />
         </g>
       </svg>
     </div>
