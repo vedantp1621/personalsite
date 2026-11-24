@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/personalsite/static/css/main.3637484b.css",
-    "main.js": "/personalsite/static/js/main.2b11f0dc.js",
+    "main.js": "/personalsite/static/js/main.0720d2ce.js",
     "static/js/709.632ad907.chunk.js": "/personalsite/static/js/709.632ad907.chunk.js",
     "static/js/787.bbe01249.chunk.js": "/personalsite/static/js/787.bbe01249.chunk.js",
     "static/js/780.f60ddbb7.chunk.js": "/personalsite/static/js/780.f60ddbb7.chunk.js",
@@ -9,12 +9,14 @@
     "static/media/DSCF0661.JPG": "/personalsite/static/media/DSCF0661.bf0e49d382aa4cbceab7.JPG",
     "static/media/DSCF0300.JPG": "/personalsite/static/media/DSCF0300.1d7b1351889e9e3c8669.JPG",
     "static/media/DSCF0487.JPG": "/personalsite/static/media/DSCF0487.fb314d3e369a7426d4f8.JPG",
+    "static/media/DSCF0840.JPG": "/personalsite/static/media/DSCF0840.e83533e7df9674985b7c.JPG",
     "static/media/DSCF0400.JPG": "/personalsite/static/media/DSCF0400.48f6b854bb2cbdcc614e.JPG",
     "static/media/DSCF0648.JPG": "/personalsite/static/media/DSCF0648.d24a9873b67d90dea3d2.JPG",
     "static/media/DSCF0412.JPG": "/personalsite/static/media/DSCF0412.b310400eba70ee0fb3d7.JPG",
     "static/media/DSCF0293.JPG": "/personalsite/static/media/DSCF0293.d40cc1923c5885d3dc02.JPG",
     "static/media/DSCF0190.JPG": "/personalsite/static/media/DSCF0190.b803495ecf2a3b281a70.JPG",
     "static/media/DSCF0182.JPG": "/personalsite/static/media/DSCF0182.8598323350109f5b640e.JPG",
+    "static/media/DSCF0087.JPG": "/personalsite/static/media/DSCF0087.724e57b03dd8c987a7eb.JPG",
     "static/media/fipet-demo.mp4": "/personalsite/static/media/fipet-demo.71c4f836ce90a5805c13.mp4",
     "static/media/pcba-demo.mp4": "/personalsite/static/media/pcba-demo.88c240c318df90e35574.mp4",
     "static/media/vedant.jpg": "/personalsite/static/media/vedant.e0fcf5e5450dfdb745a5.jpg",
@@ -31,13 +33,13 @@
     "index.html": "/personalsite/index.html",
     "static/media/quotvero.svg": "/personalsite/static/media/quotvero.fcebf3b299904f184d7f4b2c9ff0ab62.svg",
     "main.3637484b.css.map": "/personalsite/static/css/main.3637484b.css.map",
-    "main.2b11f0dc.js.map": "/personalsite/static/js/main.2b11f0dc.js.map",
+    "main.0720d2ce.js.map": "/personalsite/static/js/main.0720d2ce.js.map",
     "709.632ad907.chunk.js.map": "/personalsite/static/js/709.632ad907.chunk.js.map",
     "787.bbe01249.chunk.js.map": "/personalsite/static/js/787.bbe01249.chunk.js.map",
     "780.f60ddbb7.chunk.js.map": "/personalsite/static/js/780.f60ddbb7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3637484b.css",
-    "static/js/main.2b11f0dc.js"
+    "static/js/main.0720d2ce.js"
   ]
 }

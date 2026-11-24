@@ -238,11 +238,10 @@ function AboutMe() {
       <div className="about-grid">
         <div className="about-biography">
           <p>
-            I build software that moves with purpose. As a current sophomore at
-            UW-Madison, I'm always looking to build my skills. I love the
-            challenge of building a project from the ground up, and always try
-            to apply myself to real-world situations. Outside of CS, I obsess
-            myself in some of my hobbies shown here :)
+            I'm a Junior Computer Science and Data Science undergraduate student aiming to graduate
+            in Winter 2027. I've always loved the challenge of building a project from the ground up, 
+            and always try to apply myself to real-world situations. Outside of CS, I obsess
+            myself in some of my hobbies shown here. :)
           </p>
           <div
             className="hobby-field"
